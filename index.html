@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ポケモンスリープ 食材計算ツール</title>
+  <style>
+    body { font-family: sans-serif; padding: 1em; }
+    label, input, select { display: block; margin-top: 1em; }
+    table { margin-top: 1em; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>料理から必要な食材数を計算</h1>
+  <div id="inputs"></div>
+  <button onclick="addRecipeInput()">料理を追加</button>
+  <button onclick="calculateIngredients()">食材を計算</button>
+
+  <h2>必要な食材一覧</h2>
+  <table id="resultTable">
+    <thead>
+      <tr><th>食材名</th><th>合計数</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const recipeData = {
+      'とくせんリンゴカレー': { 'とくせんリンゴ': 7 },
+      'サンパワートマトカレー': { 'あんみんトマト': 10, 'げきからハーブ': 5 },
+      'あぶりテールカレー': { 'おいしいシッポ': 8, 'げきからハーブ': 25 },
+      'ぜったいねむりバターカレー': { 'ほっこりポテト': 18, 'リラックスカカオ': 12, 'あんみんトマト': 15, 'モーモーミルク': 10 },
+    };
+
+    function addRecipeInput() {
+      const div = document.createElement('div');
+      const select = document.createElement('select');
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.min = '1';
+      input.value = '1';
+
+      for (let name in recipeData) {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        select.appendChild(option);
+      }
+
+      div.appendChild(select);
+      div.appendChild(input);
+      document.getElementById('inputs').appendChild(div);
+    }
+
+    function calculateIngredients() {
+      const inputs = document.querySelectorAll('#inputs > div');
+      const total = {};
+
+      inputs.forEach(div => {
+        const recipeName = div.querySelector('select').value;
+        const count = parseInt(div.querySelector('input').value);
+        const ingredients = recipeData[recipeName];
+
+        for (let item in ingredients) {
+          total[item] = (total[item] || 0) + ingredients[item] * count;
+        }
+      });
+
+      const tbody = document.querySelector('#resultTable tbody');
+      tbody.innerHTML = '';
+      for (let item in total) {
+        const row = `<tr><td>${item}</td><td>${total[item]}</td></tr>`;
+        tbody.insertAdjacentHTML('beforeend', row);
+      }
+    }
+
+    // 初期入力欄を1つ表示
+    addRecipeInput();
+  </script>
+</body>
+</html>
