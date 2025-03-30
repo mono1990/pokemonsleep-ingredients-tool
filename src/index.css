@@ -2,7 +2,158 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 独自クラスを使いたいときはここに書く */
+@layer utilities {
+  .text-sleepblue {
+    @apply text-[#8CC6E7];
+  }
+
+  .bg-sleepyellow {
+    @apply bg-[#FFF4CC];
+  }
+
+  .bg-sleepblue {
+    @apply bg-[#8CC6E7];
+  }
+}
+
+
+
+/* カテゴリブロックカード */
+.category-block {
+  @apply min-w-[320px] flex-none border border-gray-300 bg-white rounded shadow p-4;
+}
+
+/* 全体レイアウト */
+.category-container {
+  @apply flex flex-nowrap overflow-x-auto gap-4;
+}
+
+/* 料理入力行 */
+.input-row {
+  @apply flex items-center gap-2 mb-2;
+}
+
+/* 数値入力フィールド */
+.count-input {
+  @apply w-16 text-center border rounded px-2 py-1;
+}
+
+/* セクション見出し */
+h2 {
+  @apply text-lg font-semibold mb-2;
+}
+
+h3 {
+  @apply font-semibold;
+}
+
+/* 食材比較表 */
+.summary-section table {
+  @apply min-w-full border text-sm;
+}
+
+.summary-section thead {
+  @apply bg-gray-200;
+}
+
+.summary-section th,
+.summary-section td {
+  @apply border px-2 py-1;
+}
+
+/* ポップアップ */
+.recommend-popup {
+  @apply fixed top-1/2 left-1/2 bg-white p-4 border-2 border-gray-400 max-h-[70vh] overflow-y-auto;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+
+/* 食材比較テーブルの見た目改善 */
+.table-wrapper {
+  @apply overflow-x-auto px-4;
+}
+
+.table-title {
+  @apply text-xl font-bold text-sleepblue mb-4;
+}
+
+.table-basic {
+  @apply min-w-full border-collapse border border-gray-300 shadow-lg text-sm;
+}
+
+.table-head {
+  @apply bg-yellow-100 text-gray-800;
+}
+
+.table-head th {
+  @apply px-3 py-2 text-left;
+}
+
+.table-head th:nth-child(n+2) {
+  @apply text-center;
+}
+
+.table-body {
+  @apply bg-white text-gray-700 divide-y divide-gray-200;
+}
+
+.table-body td {
+  @apply px-3 py-2 text-center;
+}
+
+.table-body td:first-child {
+  @apply text-left;
+}
+
+.table-head th:nth-child(n+2),
+.table-body td:nth-child(n+2) {
+  @apply text-center font-mono min-w-[64px];
+}
+
+.table-basic {
+  @apply table-fixed w-full border-collapse border border-gray-300 shadow-lg text-sm;
+}
+
+.table-head th,
+.table-body td {
+  @apply px-3 py-2;
+}
+
+.table-head th {
+  @apply font-semibold;
+}
+
+.table-body td {
+  @apply text-center font-mono;
+}
+
+.table-col {
+  @apply w-1/5;
+}
+
+
+/* 共通ボタンベース */
+.btn {
+  @apply text-sm font-semibold px-6 py-2 rounded-full shadow-md transition duration-200 transform;
+}
+
+/* メインボタン */
 .btn-primary {
-  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;
+  @apply bg-sleepblue text-white hover:bg-blue-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300;
+}
+
+/* 警告（削除など） */
+.btn-danger {
+  @apply bg-red-400 text-white hover:bg-red-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300;
+}
+
+/* 補助ボタン（おすすめなど） */
+.btn-warning {
+  @apply bg-yellow-300 text-gray-900 hover:bg-yellow-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-200;
+}
+
+/* ×ボタン */
+.btn-icon {
+  @apply text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow hover:bg-red-500 transition;
 }

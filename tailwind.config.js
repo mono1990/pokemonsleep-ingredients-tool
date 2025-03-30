@@ -8,4 +8,13 @@ export default {
     extend: {},
   },
   plugins: [],
+  extend: {
+    colors: {
+      sleepblue: '#8CC6E7',
+      sleepyello: '#FFF4CC',
+      sleepgreen: '#C8E6C9',
+      sleeppink: '#F8BBD0',
+    }
+  }  
 }
+
