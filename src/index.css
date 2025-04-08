@@ -157,3 +157,101 @@ h3 {
 .btn-icon {
   @apply text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow hover:bg-red-500 transition;
 }
+
+/* ボタン（歯車or💾） */
+.btn-icon {
+  @apply text-base font-bold rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-200 transition;
+}
+
+/* スロットポップアップ用パネル */
+.slot-panel {
+  @apply absolute right-0 mt-2 w-56 bg-white border rounded shadow p-2;
+}
+
+/* スロット内のタイトル */
+.slot-title {
+  @apply text-xs font-bold text-gray-600 mb-1;
+}
+
+/* スロットボタンの行（横並び） */
+.slot-buttons {
+  @apply flex justify-between gap-1;
+}
+
+/* スロットボタンの見た目調整 */
+.slot-btn {
+  @apply btn text-xs px-2 py-1 w-full;
+  line-height: 1; /* ボタン内文字の縦詰まりを防ぐ */
+  white-space: nowrap; /* 改行させない */
+}
+
+/* 必要に応じて個別調整 */
+.slot-btn-primary {
+  @apply btn-primary;
+}
+
+.slot-btn-danger {
+  @apply btn-danger;
+}
+
+.slot-panel {
+  @apply absolute right-0 pt-2 bg-white border rounded shadow p-2;
+  @apply transition-opacity duration-200 opacity-0 pointer-events-none;
+  width: 16rem;
+}
+
+.slot-panel.visible {
+  @apply opacity-100 pointer-events-auto;
+}
+
+
+/* ボタン上への余白 */
+.button-spacing {
+  @apply mt-2;
+}
+
+
+/* 食材アイコン */
+@layer components {
+  .food-icon {
+    /* @apply inline-block align-middle mr-2; */
+    width: 30px;
+    height: 30px;
+    background-image: url('/images/food_44x44.png'); /* 実際のパスに合わせて修正 */
+    background-size: 120px 210px; /* スプライト全体のサイズ *0.682 */
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* スプライト位置定義（1アイコン = 44x44）*/
+  .food-icon-negi       { background-position:    0px    0px; }
+  .food-icon-kinoko     { background-position:  -30px    0px; }
+  .food-icon-egg        { background-position:  -60px    0px; }
+  .food-icon-potato     { background-position:  -90px    0px; }
+
+  .food-icon-apple      { background-position:    0px  -30px; }
+  .food-icon-herb       { background-position:  -30px  -30px; }
+  .food-icon-meat       { background-position:  -60px  -30px; }
+  .food-icon-milk       { background-position:  -90px  -30px; }
+
+  .food-icon-honey      { background-position:    0px  -60px; }
+  .food-icon-oil        { background-position:  -30px  -60px; }
+  .food-icon-ginger     { background-position:  -60px  -60px; }
+  .food-icon-tomato     { background-position:  -90px  -60px; }
+
+  .food-icon-cacao      { background-position:    0px -90px; }
+  .food-icon-tail       { background-position:  -30px -90px; }
+  .food-icon-bean       { background-position:  -60px -90px; }
+  .food-icon-corn       { background-position:  -90px -90px; }
+
+  .food-icon-coffee     { background-position:    0px -120px; }
+}
+
+/* 食材のミニテーブル用 */
+.mini-table td {
+  @apply align-middle py-0.5;
+}
+
