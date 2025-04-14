@@ -7,7 +7,7 @@ const SAVE_PREFIX = "pokesleep-cook-slot-"; // + 1, 2, 3
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/recipes.json")
+  fetch("./recipes.json")
     .then(res => res.json())
     .then(data => {
       recipes = data;

@@ -217,7 +217,7 @@ h3 {
     /* @apply inline-block align-middle mr-2; */
     width: 30px;
     height: 30px;
-    background-image: url('/images/food_44x44.png'); /* 実際のパスに合わせて修正 */
+    background-image: url('./images/food_44x44.png'); /* 実際のパスに合わせて修正 */
     background-size: 120px 210px; /* スプライト全体のサイズ *0.682 */
     background-repeat: no-repeat;
     image-rendering: pixelated;
