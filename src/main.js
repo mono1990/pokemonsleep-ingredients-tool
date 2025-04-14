@@ -140,7 +140,7 @@ function addRecipeInput(category, defaultName = null, defaultCount = 1) {
       saveInputsToStorage();
     });
     
-  removeBtn.textContent = "✖";
+  removeBtn.textContent = "✕";
   removeBtn.type = "button";
   removeBtn.classList.add('btn-icon', 'bg-red-400', 'text-white');
   removeBtn.onclick = () => {
