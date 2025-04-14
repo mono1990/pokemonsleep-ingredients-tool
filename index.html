@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ポケモンスリープ 食材＆エナジー計算</title>
+  <script type="module" crossorigin src="/assets/index-Cs4Anx1u.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DmFHhG9h.css">
+</head>
+<body>
+  <h1>料理から必要な食材とエナジーを計算</h1>
+
+  <div id="slot-menu" class="fixed top-4 right-4 z-50 group">
+    <div class="relative">
+      <button class="btn btn-icon bg-white border shadow">💾</button>
+      <div id="slot-panel" class="slot-panel">
+        <div class="space-y-2">
+          <div>
+            <div class="slot-title">スロット1</div>
+            <div class="slot-buttons">
+              <button onclick="saveToSlot(1)" class="slot-btn slot-btn-primary">保存</button>
+              <button onclick="loadFromSlot(1)" class="slot-btn slot-btn-primary">読込</button>
+              <button onclick="deleteSlot(1)" class="btn btn-icon btn-danger">✕</button>
+            </div>
+          </div>
+          <div>✕✕
+            <div class="slot-title">スロット2</div>
+            <div class="slot-buttons">
+              <button onclick="saveToSlot(2)" class="slot-btn slot-btn-primary">保存</button>
+              <button onclick="loadFromSlot(2)" class="slot-btn slot-btn-primary">読込</button>
+              <button onclick="deleteSlot(2)" class="btn btn-icon btn-danger">✕</button>
+            </div>
+          </div>
+          <div>
+            <div class="slot-title">スロット3</div>
+            <div class="slot-buttons">
+              <button onclick="saveToSlot(3)" class="slot-btn slot-btn-primary">保存</button>
+              <button onclick="loadFromSlot(3)" class="slot-btn slot-btn-primary">読込</button>
+              <button onclick="deleteSlot(3)" class="btn btn-icon btn-danger">✕</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div id="categories" class="category-container">
+    <div class="category-block" id="section-カレー・シチュー">
+      <h2>カレー・シチューの料理選択</h2>
+      <div class="input-area" id="input-カレー・シチュー"></div>
+      <button id="add-btn-カレー・シチュー" class="btn btn-primary">料理を追加</button>
+      <button onclick="showRecommendations('カレー・シチュー')" class="btn btn-warning">おすすめ料理を見る</button>
+      <h3>必要な食材</h3>
+      <div id="result-カレー・シチュー"></div>
+      <h3>合計エナジー</h3>
+      <p id="energy-カレー・シチュー">0</p>
+    </div>
+
+    <div class="category-block" id="section-サラダ">
+      <h2>サラダの料理選択</h2>
+      <div class="input-area" id="input-サラダ"></div>
+      <button id="add-btn-サラダ" class="btn btn-primary">料理を追加</button>
+      <button onclick="showRecommendations('サラダ')" class="btn btn-warning">おすすめ料理を見る</button>
+      <h3>必要な食材</h3>
+      <div id="result-サラダ"></div>
+      <h3>合計エナジー</h3>
+      <p id="energy-サラダ">0</p>
+    </div>
+
+    <div class="category-block" id="section-ドリンク・デザート">
+      <h2>ドリンク・デザートの料理選択</h2>
+      <div class="input-area" id="input-ドリンク・デザート"></div>
+      <button id="add-btn-ドリンク・デザート" class="btn btn-primary">料理を追加</button>
+      <button onclick="showRecommendations('ドリンク・デザート')" class="btn btn-warning">おすすめ料理を見る</button>
+      <h3>必要な食材</h3>
+      <div id="result-ドリンク・デザート"></div>
+      <h3>合計エナジー</h3>
+      <p id="energy-ドリンク・デザート">0</p>
+    </div>
+  </div>
+
+  <button onclick="calculateAll()" class="btn btn-primary button-spacing">計算する</button>
+  <button id="clear-btn" class="btn btn-outline btn-danger button-spacing">入力をすべてクリア</button>
+
+  <div class="summary-section mt-8">
+    <h2 class="table-title">カテゴリ別食材比較（表形式）</h2>
+  
+    <div class="table-wrapper">
+      <table id="ingredient-comparison" class="table-basic">
+        <thead class="table-head">
+          <tr>
+            <th class="table-col">食材名</th>
+            <th class="table-col">カレー・シチュー</th>
+            <th class="table-col">サラダ</th>
+            <th class="table-col">ドリンク・デザート</th>
+            <th class="table-col">最大必要数</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <!-- 動的に行が入る -->
+        </tbody>
+      </table>      
+    </div>
+  </div>  
+
+</body>
+</html>
